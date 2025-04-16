@@ -1,4 +1,5 @@
 package com.example.bookapitest.interfaces
+import com.example.bookapitest.models.Recommendation
 import com.example.bookapitest.models.UserRequest
 import com.example.bookapitest.models.UserResponse
 import retrofit2.Response
@@ -18,4 +19,7 @@ interface ApiInterface {
 
     @DELETE("users/{id_user}")
     suspend fun deleteUser(@Path("id_user") id_user:Int):Response<UserResponse>
+
+    @GET("/recommendations/{id_user}")
+    suspend fun getRecommendations(@Path("id_user") id_user: Int):Response<List<Recommendation>>
 }

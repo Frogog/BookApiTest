@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">BookApiTest</string>
+    <string name="title_activity_recomendations_list">RecomendationsList</string>
 </resources>
