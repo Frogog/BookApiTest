@@ -173,7 +173,7 @@ fun BookCard(book:Recommendation){
                 }
             )
             Text(
-                book.Title.substring(0,18),
+                book.Title.substring(0,15)+"...",
                 style = MaterialTheme.typography.bodyLarge
             )
             Text(
