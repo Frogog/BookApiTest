@@ -17,6 +17,11 @@
         android:theme="@style/Theme.BookApiTest"
         tools:targetApi="31">
         <activity
+            android:name=".AuthActivity"
+            android:exported="false"
+            android:label="@string/title_activity_auth"
+            android:theme="@style/Theme.BookApiTest" />
+        <activity
             android:name=".RecomendationsList"
             android:exported="false"
             android:label="@string/title_activity_recomendations_list"

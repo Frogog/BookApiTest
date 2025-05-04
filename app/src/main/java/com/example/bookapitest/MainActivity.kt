@@ -21,8 +21,10 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.List
+import androidx.compose.material.icons.automirrored.outlined.Send
 import androidx.compose.material.icons.outlined.Close
 import androidx.compose.material.icons.outlined.List
+import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
@@ -187,15 +189,28 @@ fun MainTopBar(mainViewModel:MainViewModel){
             text = "ТопБар",
             color = Color.White
         )
-        Icon(
-            imageVector = Icons.AutoMirrored.Outlined.List,
-            contentDescription = "Закрытие",
-            tint = Color.White,
-            modifier = Modifier.clickable {
-                val intent = Intent(context,RecomendationsList::class.java)
-                context.startActivity(intent)
-            }
-        )
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ){
+            Icon(
+                imageVector = Icons.Outlined.Person,
+                contentDescription = "Закрытие",
+                tint = Color.White,
+                modifier = Modifier.clickable {
+                    val intent = Intent(context,AuthActivity::class.java)
+                    context.startActivity(intent)
+                }
+            )
+            Icon(
+                imageVector = Icons.AutoMirrored.Outlined.List,
+                contentDescription = "Закрытие",
+                tint = Color.White,
+                modifier = Modifier.clickable {
+                    val intent = Intent(context,RecomendationsList::class.java)
+                    context.startActivity(intent)
+                }
+            )
+        }
     }
 }
 

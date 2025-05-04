@@ -19,7 +19,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -43,7 +42,6 @@ import coil3.compose.AsyncImage
 import coil3.network.NetworkHeaders
 import coil3.network.httpHeaders
 import coil3.request.ImageRequest
-import coil3.request.crossfade
 import com.example.bookapitest.models.Recommendation
 import com.example.bookapitest.ui.theme.BookApiTestTheme
 
@@ -56,7 +54,7 @@ class RecomendationsList : ComponentActivity() {
             BookApiTestTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    topBar = { RecTopBar { finish() }}
+                    topBar = { SimpleTopBar("Рекомендации") { finish() } }
                 ) { innerPadding ->
                     Surface(
                         modifier = Modifier.padding(innerPadding)
@@ -74,7 +72,7 @@ class RecomendationsList : ComponentActivity() {
 }
 
 @Composable
-fun RecTopBar(onBackClick:()->Unit){
+fun SimpleTopBar(title:String,onBackClick:()->Unit){
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -93,8 +91,9 @@ fun RecTopBar(onBackClick:()->Unit){
             tint = Color.White
         )
         Text(
-            text = "Рекомендации",
-            color = Color.White
+            text = title,
+            color = Color.White,
+            style = MaterialTheme.typography.titleLarge
         )
     }
 }
@@ -208,7 +207,7 @@ fun BookCard(book:Recommendation){
 fun GreetingPreview() {
     BookApiTestTheme {
         Column {
-            RecTopBar({})
+            SimpleTopBar("Рекомендации",{})
             RecInputField(recViewModel = RecViewModel())
             RecBigButton(recViewModel = RecViewModel())
             BookList(recViewModel = RecViewModel())
